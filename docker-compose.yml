@@ -1,0 +1,11 @@
+version: '3.5'  # We use version 3.5 syntax
+
+services:   # Here we define our service(s)
+    client:    # The name of the service
+        build:   # Location of our Dockerfile
+            context: .
+        volumes: # Volume binding
+            - './restaurant-app:/app'
+        ports: 
+            - '8000:4200' # Port mapping
+        command: ["npm", "run", "start"]
