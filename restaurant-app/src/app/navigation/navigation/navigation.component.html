@@ -1,1 +1,155 @@
-<p>navigation works!</p>
+<nav class="nav-menu">
+    <div class="nav-menu__logo">
+        <a
+            [routerLink]="['/']"
+            class="logo__link"
+        >
+            <fa-icon [icon]="faUtensils" class="logo__icon fa-2x"></fa-icon>
+            <div class="logo__name">
+                Foodtino
+            </div>
+        </a>
+    </div>
+    <ul class="nav-menu__list">
+        <li class="nav-menu__item">
+            <a
+                class="item__link"
+                [routerLink]="['/restaurants']"
+                [routerLinkActive]="['item__link--active']"
+            >
+                <div class="item__icon">
+                    <fa-icon [icon]="faHome" class="fa-2x"></fa-icon>
+                </div>
+                <div class="item__name">
+                    Dashboard
+                </div>
+            </a>
+        </li>
+        <li class="nav-menu__item">
+            <a
+                class="item__link"
+                [routerLink]="['/login']"
+                [routerLinkActive]="['item__link--active']"
+            >
+                <div class="item__icon">
+                    <fa-icon [icon]="faSignInAlt" class="fa-2x"></fa-icon>
+                </div>
+                <div class="item__name">
+                    Prihlásenie
+                </div>
+            </a>
+        </li>
+        <li class="nav-menu__item">
+            <a
+                class="item__link"
+                [routerLink]="['/profile']"
+                [routerLinkActive]="['item__link--active']"
+            >
+                <div class="item__icon">
+                    <fa-icon [icon]="faUser" class="fa-2x"></fa-icon>
+                </div>
+                <div class="item__name">
+                    Profil
+                </div>
+            </a>
+        </li>
+        <li class="nav-menu__item">
+            <a
+                class="item__link"
+                [routerLink]="['/logout']"
+                [routerLinkActive]="['item__link--active']"
+            >
+                <div class="item__icon">
+                    <fa-icon [icon]="faSignOutAlt" class="fa-2x"></fa-icon>
+                </div>
+                <div class="item__name">
+                    Odhlásenie
+                </div>
+            </a>
+        </li>
+        <li class="nav-menu__item nav-menu__item--mobile">
+            <a
+                class="item__link"
+                (click)="isSideNavOpen = !isSideNavOpen"
+            >
+                <div class="item__icon">
+                    <fa-icon [icon]="faBars" class="fa-2x"></fa-icon>
+                </div>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div
+    class="overlay"
+    @fade
+    *ngIf="isSideNavOpen"
+    (click)="isSideNavOpen = !isSideNavOpen"
+></div>
+<nav
+    class="sidenav-menu"
+    @openClose
+    *ngIf="isSideNavOpen"
+>
+    <ul class="sidenav-menu__list">
+        <li class="sidenav-menu__item">
+            <a
+                class="item__link"
+                [routerLink]="['/restaurants']"
+                [routerLinkActive]="['item__link--active']"
+                (click)="isSideNavOpen = !isSideNavOpen"
+            >
+                <div class="item__icon">
+                    <fa-icon [icon]="faHome" class="fa-2x"></fa-icon>
+                </div>
+                <div class="item__name">
+                    Dashboard
+                </div>
+            </a>
+        </li>
+        <li class="sidenav-menu__item">
+            <a
+                class="item__link"
+                [routerLink]="['/login']"
+                [routerLinkActive]="['item__link--active']"
+                (click)="isSideNavOpen = !isSideNavOpen"
+            >
+                <div class="item__icon">
+                    <fa-icon [icon]="faSignInAlt" class="fa-2x"></fa-icon>
+                </div>
+                <div class="item__name">
+                    Prihlásenie
+                </div>
+            </a>
+        </li>
+        <li class="sidenav-menu__item">
+            <a
+                class="item__link"
+                [routerLink]="['/profile']"
+                [routerLinkActive]="['item__link--active']"
+                (click)="isSideNavOpen = !isSideNavOpen"
+            >
+                <div class="item__icon">
+                    <fa-icon [icon]="faUser" class="fa-2x"></fa-icon>
+                </div>
+                <div class="item__name">
+                    Profil
+                </div>
+            </a>
+        </li>
+        <li class="sidenav-menu__item">
+            <a
+                class="item__link"
+                [routerLink]="['/logout']"
+                [routerLinkActive]="['item__link--active']"
+                (click)="isSideNavOpen = !isSideNavOpen"
+            >
+                <div class="item__icon">
+                    <fa-icon [icon]="faSignOutAlt" class="fa-2x"></fa-icon>
+                </div>
+                <div class="item__name">
+                    Odhlásenie
+                </div>
+            </a>
+        </li>
+    </ul>
+</nav>
