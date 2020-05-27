@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './dashboard.component';
+import { RestaurantComponent } from './restaurant.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { RouterModule } from '@angular/router';
-
+import { GravatarModule } from 'ngx-gravatar';
 
 @NgModule({
-    declarations: [DashboardComponent],
+    declarations: [RestaurantComponent],
     imports: [
         CommonModule,
         FontAwesomeModule,
-        RouterModule
+        GravatarModule
     ],
-    exports: [DashboardComponent]
+    exports: [RestaurantComponent]
 })
-export class DashboardModule { }
+export class RestaurantModule { }

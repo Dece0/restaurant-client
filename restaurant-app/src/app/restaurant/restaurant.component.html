@@ -1,0 +1,98 @@
+<div
+    class="restaurant"
+    *ngIf="restaurant"
+>
+    <div class="restaurant__image">
+        <img class="image" src="../../assets/modern-restaurant-facade.jpg" alt="restaurant facade" />
+    </div>
+    <div class="restaurant__header">
+        <h1 class="restaurant__title">
+            {{ restaurant.name }}
+        </h1>
+    </div>
+    <div class="restaurant__body">
+        <div class="restaurant__description">
+            <fa-icon
+                class="description__left-quotes fa-2x"
+                [icon]="faQuoteLeft"
+            ></fa-icon>
+            <p class="description__text">
+                {{ restaurant.description }}
+            </p>
+            <fa-icon
+                class="description__right-quotes fa-2x"
+                [icon]="faQuoteRight"
+            ></fa-icon>
+        </div>
+        <div class="restaurant__info">
+            <div class="restaurant__location">
+                <fa-icon
+                    class="location__marker fa-2x"
+                    [icon]="faMapMarkerAlt"
+                ></fa-icon>
+                <p class="location__name">
+                    {{ restaurant.location }}
+                </p>
+            </div>
+            <div class="restaurant__rating">
+                <fa-icon
+                    class="rating__icon fa-2x"
+                    [icon]="faStar"
+                ></fa-icon>
+                <p class="rating__value">
+                    {{ getAverageRating() }}
+                </p>
+            </div>
+            <div class="restaurant__owner">
+                <fa-icon
+                    class="owner__icon fa-2x"
+                    [icon]="faUser"
+                ></fa-icon>
+                <div class="owner__name">
+                    {{ restaurant.user.firstName }}
+                    {{ restaurant.user.lastName }}
+                </div>
+            </div>
+        </div>
+        <div
+            class="restaurant__reviews"
+            *ngIf="restaurant.reviews"
+        >
+            <div class="reviews__list">
+                <div
+                    class="reviews__item"
+                    *ngFor="let review of restaurant.reviews"
+                >
+                    <div class="item__user">
+                        <div class="user__gravatar">
+                            <img
+                                ngxGravatar
+                                [email]="review.author.email"
+                            />
+                        </div>
+                        <div class="user__name">
+                            {{ review.author.firstName }}
+                            {{ review.author.lastName }}
+                        </div>
+                    </div>
+                    <div class="item__rating">
+                        <div class="rating__date">
+                            {{ review.created | date:'medium' }}
+                        </div>
+                        <div class="rating__stars">
+                            <fa-icon
+                                *ngFor="let item of [].constructor(5); let i = index"
+                                class="star fa-2x"
+                                [icon]="getIcon(i, review.rating)"
+                            ></fa-icon>
+                        </div>
+                        <div class="rating__text">
+                            {{ review.text }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

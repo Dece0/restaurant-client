@@ -112,17 +112,14 @@
         .item {
             &__link {
                 display: block;
-                color: white;
+                color: #fff;
                 text-decoration: none;
                 padding: 0.25em 0.75em;
                 text-align: center;
 
-                &--active .item__name::after {
-                    display: block;
-                    content: '';
-                    border-bottom: 3px solid #fff;
-                    -webkit-animation: scale-up-hor-center 0.25s ease-in both;
-                    animation: scale-up-hor-center 0.25s ease-in both;
+                &--active {
+                    background: #fff;
+                    color: #063852;
                 }
             }
 
@@ -133,12 +130,6 @@
 
             &__name {
                 padding-top: 0.5em;
-
-                &::after {
-                    display: block;
-                    content: '';
-                    border-bottom: 3px solid #063852;
-                }
             }
         }
     }
