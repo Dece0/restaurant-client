@@ -1,0 +1,258 @@
+.restaurant {
+    padding: 2em 0;
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        flex-basis: 50%;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+        @media screen and (max-width: 1600px) {
+            flex-basis: 60%;
+        }
+
+        @media screen and (max-width: 1200px) {
+            flex-basis: 70%;
+        }
+
+        @media screen and (max-width: 800px) {
+            flex-basis: 90%;
+        }
+    }
+
+    &__image {
+        position: relative;
+        padding: 0 5px;
+        text-align: right;
+
+        &:before {
+            display: block;
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            right: 0;
+            background: linear-gradient(
+                    45deg,
+                    hsla(190, 95%, 43%, 1) 0%,
+                    hsla(190, 95%, 43%, 0) 70%
+                ),
+                linear-gradient(
+                    135deg,
+                    hsla(219, 93%, 48%, 1) 10%,
+                    hsla(219, 93%, 48%, 0) 80%
+                ),
+                linear-gradient(
+                    225deg,
+                    hsla(293, 93%, 48%, 1) 10%,
+                    hsla(293, 93%, 48%, 0) 80%
+                ),
+                linear-gradient(
+                    315deg,
+                    hsla(130, 96%, 45%, 1) 100%,
+                    hsla(130, 96%, 45%, 0) 70%
+                );
+            opacity: 0.6;
+            z-index: 1;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+            border-top-left-radius: 0.75em;
+            border-top-right-radius: 0.75em;
+        }
+
+        .image {
+            width: 100%;
+            border-top-left-radius: 0.75em;
+            border-top-right-radius: 0.75em;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+    }
+
+    &__header {
+        text-align: center;
+    }
+
+    &__body {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+
+        @media screen and (max-width: 800px) {
+            padding: 0.5em;
+        }
+    }
+
+    &__description {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 1.5em;
+
+        @media screen and (max-width: 500px) {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+
+        .description {
+            &__left-quotes {
+                padding-right: 0.5em;
+            }
+
+            &__text {
+                font-size: 1.1em;
+                text-align: justify;
+
+                @media screen and (max-width: 500px) {
+                    font-size: 1em;
+                }
+            }
+
+            &__right-quotes {
+                padding-left: 0.5em;
+            }
+        }
+    }
+
+    &__location {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        flex-basis: 40%;
+
+        .location {
+            &__marker {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                padding: 0.5em;
+                margin-bottom: 0.25em;
+                color: #fff;
+                border-radius: 50%;
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+                background: rgb(2, 0, 36);
+                background: linear-gradient(
+                    90deg,
+                    rgba(2, 0, 36, 1) 0%,
+                    rgba(9, 9, 121, 1) 35%,
+                    rgba(0, 212, 255, 1) 100%
+                );
+
+                @media screen and (max-width: 500px) {
+                    width: 30px;
+                    height: 30px;
+                    padding: 0.25em;
+                }
+            }
+
+            &__name {
+                font-size: 1.5em;
+                text-align: center;
+
+                @media screen and (max-width: 500px) {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+    &__owner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-basis: 40%;
+        justify-content: space-between;
+
+        .owner {
+            &__icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                padding: 0.5em;
+                color: #fff;
+                margin-bottom: 0.25em;
+                border-radius: 50%;
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+                background: rgb(2, 0, 36);
+                background: linear-gradient(
+                    90deg,
+                    rgb(66, 5, 5) 0%,
+                    rgba(224, 51, 23, 1) 36%,
+                    rgba(255, 216, 0, 1) 100%
+                );
+
+                @media screen and (max-width: 500px) {
+                    width: 30px;
+                    height: 30px;
+                    padding: 0.25em;
+                }
+            }
+
+            &__name {
+                font-size: 1.5em;
+
+                @media screen and (max-width: 500px) {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+    &__rating {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-basis: 20%;
+        justify-content: space-between;
+
+        .rating {
+            &__icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                padding: 0.5em;
+                color: #fff;
+                margin-bottom: 0.25em;
+                border-radius: 50%;
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+                background: rgb(250, 210, 55);
+                background: linear-gradient(
+                    90deg,
+                    rgba(250, 210, 55, 1) 38%,
+                    rgba(236, 247, 0, 1) 80%
+                );
+
+                @media screen and (max-width: 500px) {
+                    width: 30px;
+                    height: 30px;
+                    padding: 0.25em;
+                }
+            }
+
+            &__value {
+                font-size: 1.5em;
+
+                @media screen and (max-width: 500px) {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 1em;
+    }
+}

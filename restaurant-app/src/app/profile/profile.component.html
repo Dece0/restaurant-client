@@ -1,0 +1,21 @@
+<div class="profile">
+    <div class="profile__container" *ngIf="user">
+        <div class="profile__header">
+            <h1 class="profile__title">
+                Profil používateľa
+            </h1>
+        </div>
+        <div class="profile__body">
+            <div class="profile__image">
+                <img class="image" ngxGravatar [email]="user.email" width="100%" />
+            </div>
+            <div class="profile__name">
+                {{ user.firstName }}
+                {{ user.lastName }}
+            </div>
+            <div class="profile__email">
+                {{ user.email }}
+            </div>
+        </div>
+    </div>
+</div>

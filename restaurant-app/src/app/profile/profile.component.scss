@@ -1,0 +1,38 @@
+.profile {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+
+    &__container {
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+        border-radius: 0.25em;
+        flex-basis: 50%;
+        padding: 1em;
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__image {
+        text-align: center;
+        padding: 1em 0;
+
+        .image {
+            width: 90px !important;
+            height: 90px !important;
+        }
+    }
+
+    &__name {
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: bolder;
+        padding-bottom: 1em;
+    }
+
+    &__email {
+        text-align: center;
+        font-size: 1.1em;
+    }
+}

@@ -1,0 +1,67 @@
+<div class="restaurant">
+    <div class="restaurant__container" *ngIf="restaurant.value">
+        <div class="restaurant__image">
+            <img
+                class="image"
+                src="../../assets/modern-restaurant-facade.jpg"
+                alt="restaurant facade"
+            />
+        </div>
+        <div class="restaurant__header">
+            <h1 class="restaurant__title">
+                {{ restaurant.value.name }}
+            </h1>
+        </div>
+        <div class="restaurant__body">
+            <div class="restaurant__description">
+                <fa-icon
+                    class="description__left-quotes fa-2x"
+                    [icon]="faQuoteLeft"
+                ></fa-icon>
+                <p class="description__text">
+                    {{ restaurant.value.description }}
+                </p>
+                <fa-icon
+                    class="description__right-quotes fa-2x"
+                    [icon]="faQuoteRight"
+                ></fa-icon>
+            </div>
+            <div class="restaurant__info">
+                <div class="restaurant__location">
+                    <fa-icon
+                        class="location__marker fa-2x"
+                        [icon]="faMapMarkerAlt"
+                    ></fa-icon>
+                    <p class="location__name">
+                        {{ restaurant.value.location }}
+                    </p>
+                </div>
+                <div class="restaurant__rating">
+                    <fa-icon
+                        class="rating__icon fa-2x"
+                        [icon]="faStar"
+                    ></fa-icon>
+                    <p class="rating__value">
+                        {{ getAverageRating() }}
+                    </p>
+                </div>
+                <div class="restaurant__owner">
+                    <fa-icon
+                        class="owner__icon fa-2x"
+                        [icon]="faUser"
+                    ></fa-icon>
+                    <div class="owner__name">
+                        {{ restaurant.value.user.firstName }}
+                        {{ restaurant.value.user.lastName }}
+                    </div>
+                </div>
+            </div>
+            <app-reviews-form
+                *ngIf="isUserLoggedIn() && !wroteReview()"
+                [id]="restaurant.value._id"
+                [restaurant]="restaurant.asObservable()"
+            ></app-reviews-form>
+            <app-reviews-list [reviews]="restaurant.value.reviews"></app-reviews-list>
+        </div>
+    </div>
+</div>

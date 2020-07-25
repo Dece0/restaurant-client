@@ -1,28 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Restaurant, SelectedRestaurant } from './restaurant';
+import { Restaurant } from '../restaurant';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Review, PostReview } from '../review';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-export class RestaurantService {
+export class ReviewService {
     api = 'http://localhost:3000';
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {}
 
-    getRestaurants(): Observable<Restaurant[]> {
-        return this.http.get<Restaurant[]>(`${this.api}/restaurants`)
+    getReviews(id: string): Observable<Review[]> {
+        return this.http.get<Review[]>(`${this.api}/reviews/${id}`)
             .pipe(
-                catchError(this.handleError<Restaurant[]>('getRestaurants', []))
+                catchError(this.handleError<Review[]>(`getReviews id=${id}`))
             );
     }
 
-    getRestaurant(id: string): Observable<SelectedRestaurant> {
-        return this.http.get<SelectedRestaurant>(`${this.api}/restaurants/${id}`)
+    postReview(id: string, review: PostReview) {
+        return this.http.post<PostReview>(`${this.api}/reviews/${id}`, review)
             .pipe(
-                catchError(this.handleError<SelectedRestaurant>(`getRestaurant id=${id}`))
+                catchError(this.handleError<PostReview>(`postReview`))
             );
     }
 

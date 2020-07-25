@@ -7,5 +7,5 @@ services:   # Here we define our service(s)
         volumes: # Volume binding
             - './restaurant-app:/app'
         ports: 
-            - '8000:4200' # Port mapping
+            - '8080:4200' # Port mapping
         command: ["npm", "run", "start"]

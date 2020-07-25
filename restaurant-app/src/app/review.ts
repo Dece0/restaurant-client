@@ -7,3 +7,8 @@ export interface Review {
     text: string;
     rating: number;
 }
+
+export interface PostReview {
+    text: string;
+    rating: number;
+}

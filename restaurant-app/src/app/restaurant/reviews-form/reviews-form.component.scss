@@ -1,0 +1,72 @@
+.reviews {
+    padding: 1em;
+
+    &__form {
+        background: rgb(13,0,92);
+        background: linear-gradient(90deg, rgba(13,0,92,1) 17%, rgba(60,97,176,1) 69%); 
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+        border-radius: 0.5em;
+        color: #fff;
+        padding: 1em;
+
+        .form {
+            &__row {
+                padding: 0.5em 0;
+            }
+        
+            &__label {
+                display: flex;
+                flex-direction: column;
+            }
+        
+            &__input {
+                border: none;
+                background: none;
+                border-bottom: 3px solid #fff;
+                background: #fff;
+                padding: 0.25em 0.5em;
+                font-size: 1.1em;
+                margin-top: 0.5em;
+            }
+
+            &__rating {
+
+                .star {
+                    color: rgb(252, 214, 0);
+                    cursor: pointer;
+                }
+            }
+
+            &__button {
+                display: block;
+                padding: 0.75em;
+                border: none;
+                font-size: 1.1em;
+                cursor: pointer;
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+                border-radius: 0.25em;
+                transition: 0.3s;
+                text-align: center;
+
+                &:disabled {
+                    background: grey;
+                    border: 4px solid grey;
+                    cursor: not-allowed;
+                }
+
+                &--success {
+                    background: green;
+                    border: 4px solid green;
+                    color: #fff;
+
+                    &:hover {
+                        background: #fff;
+                        color: green;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+

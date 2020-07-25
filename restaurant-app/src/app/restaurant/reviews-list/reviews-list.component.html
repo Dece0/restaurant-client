@@ -1,0 +1,37 @@
+<div class="reviews">
+    <div class="reviews__list" *ngIf="reviews.length; else elseBlock">
+        <div class="reviews__item" *ngFor="let review of reviews" @fade>
+            <div class="item__user">
+                <div class="user__gravatar">
+                    <img ngxGravatar [email]="review.author.email" />
+                </div>
+                <div class="user__name">
+                    {{ review.author.firstName }}
+                    {{ review.author.lastName }}
+                </div>
+            </div>
+            <div class="item__rating">
+                <div class="rating__date">
+                    {{ review.created | date: "medium" }}
+                </div>
+                <div class="rating__stars">
+                    <fa-icon
+                        *ngFor="let item of [].constructor(5); let i = index"
+                        class="star fa-2x"
+                        [icon]="getIcon(i, review.rating)"
+                    ></fa-icon>
+                </div>
+                <div class="rating__text">
+                    {{ review.text }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <div class="reviews__list">
+            <div class="reviews__item reviews__item--empty" @fade>
+                Žiadne recenzie
+            </div>
+        </div>
+    </ng-template>
+</div>

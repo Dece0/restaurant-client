@@ -1,0 +1,53 @@
+<div class="reviews">
+    <form
+        action=""
+        class="reviews__form"
+        [formGroup]="reviewForm"
+        (submit)="postReview()"
+    >
+        <div class="form__row">
+            <label class="form__label">
+                Recenzia:
+                <textarea
+                    class="form__input"
+                    placeholder="Sem napíšte stručnú recenziu"
+                    cols="30"
+                    rows="5"
+                    name="text"
+                    formControlName="text"
+                    required
+                ></textarea>
+            </label>
+        </div>
+        <div class="form__row">
+            <label class="form__label">
+                Hodnotenie:
+                <div class="form__rating">
+                    <fa-icon
+                        *ngFor="let num of [1, 2, 3, 4, 5]"
+                        class="star fa-3x"
+                        (mouseover)="overStar = num"
+                        (mouseleave)="overStar = -1"
+                        (click)="currentStar = num"
+                        [icon]="setIcon(num)"
+                    ></fa-icon>
+                    <input
+                        type="hidden"
+                        name="rating"
+                        formControlName="rating"
+                        [(ngModel)]="currentStar"
+                    />
+                </div>
+            </label>
+        </div>
+        <div class="form__row">
+            <button
+                class="form__button form__button--success"
+                type="submit"
+                [disabled]="!reviewForm.valid"
+            >
+                Odoslať
+            </button>
+        </div>
+    </form>
+</div>
